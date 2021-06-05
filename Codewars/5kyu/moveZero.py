@@ -14,6 +14,7 @@ def move_zeros(array):
         
     return numArr
 
+print(move_zeros([1, 0]))
 # One-liner:
 
 def move_zeros2(array):

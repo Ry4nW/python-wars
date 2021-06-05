@@ -6,9 +6,7 @@ def tower_builder(n_floors):
 
     
     # Build the top floor.
-    for i in range(n_floors + 1):
-        if i == 0:
-            continue
+    for i in range(1, n_floors + 1):
             
         floor = ''
         

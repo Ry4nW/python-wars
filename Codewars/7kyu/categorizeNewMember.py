@@ -11,7 +11,7 @@ def open_or_senior(data):
         
         categories.append('Open')
 
-    return categories\
+    return categories
 
 # Nice one-liner:
 

@@ -4,14 +4,41 @@ def rot13(message):
     encodedMessage = ''
     
     for i in message:
+        
         for j in range(len(alph)):
             
-            if alph[j] == i:
-                encodedMessage += alph[j + 13] 
-                break
+            found = False
+            
+            if alph[j].lower() == i.lower():
                 
-    # code to check for out of range, extend back to beginning of alphabet
-    # also check for and match the message letter's casing
+                try:
+                    
+                    if i == alph[j].upper():
+                        encodedMessage += alph[j + 13].upper() 
+                        found = True
+                        break
+                    
+                    encodedMessage += alph[j + 13]
+                    found = True
+                    break
+                    
+                except IndexError:
+                    
+                    length = 13 - (len(alph[j:]))
+                    
+                    if i == alph[j].upper():
+                        
+                        encodedMessage += alph[length].upper()
+                        found = True
+                        break
+                    
+                    encodedMessage += alph[length]
+                    found = True
+                    break
     
+        if found != True:
+            encodedMessage += i
+            
+                
     return encodedMessage
                 

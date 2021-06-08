@@ -15,10 +15,9 @@ def rot13(message):
                     
                     if i == alph[j].upper():
                         encodedMessage += alph[j + 13].upper() 
-                        found = True
-                        break
-                    
-                    encodedMessage += alph[j + 13]
+                    else:
+                        encodedMessage += alph[j + 13]
+
                     found = True
                     break
                     
@@ -27,12 +26,11 @@ def rot13(message):
                     length = 13 - (len(alph[j:]))
                     
                     if i == alph[j].upper():
-                        
                         encodedMessage += alph[length].upper()
-                        found = True
-                        break
+
+                    else:
+                        encodedMessage += alph[length]
                     
-                    encodedMessage += alph[length]
                     found = True
                     break
     

@@ -1,7 +1,10 @@
-# Takes 2 numbers, iterates through the range of the two,
-# returns a list of numbers containing the property of:
-# "The sum of all digits of the number raised to the 
+# Takes 2 numbers, returns a list of numbers
+# within that range containing the property of:
+# "Sum of all digits of the number raised to the 
 # consecutive powers results in the same number."
+
+# e.g. 89 --> 8^1 + 9^2 === 89
+# ^Eureka number.
 
 def sum_dig_pow(a, b): 
 
@@ -14,6 +17,12 @@ def sum_dig_pow(a, b):
         else:
 
             numStr = str(i)
+            sum = 0
 
             for j in range(len(numStr)):
-                if j 
+                sum += int(numStr[j]) ** (j + 1)
+            
+            if sum == int(numStr):
+                eurekaNums.append(i)
+
+    return eurekaNums

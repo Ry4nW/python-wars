@@ -4,42 +4,45 @@
 # e.g. AAABBBCCCD ---> 3A3B3C1D
 # e.g. 3A ---> AAA 
 
-def encode(str):
+def encode(string):
 
     encodedStr = ''
-    data = str[0]
+    data = string[0]
     count = 0
 
-    for i in range(len(str)):
+    for i in range(len(string)):
 
-        if str[i] == data:
+        if string[i] == data:
             count += 1
 
         else:
-            
-            data = str[i]
-            encodedStr += "{count}".format(count = count) + str[i - 1]
+
+            data = string[i]
+            encodedStr += "{count}".format(count=count) + string[i - 1]
             count = 1
-            
-            if i == len(str) - 1:
-                encodedStr += "1" + str[i]
-                break
-    
-    return "{count}".format(count = count) + data if len(encodedStr) == 0 else encodedStr 
+
+        if i == len(string) - 1:
+            c = str(count)
+            encodedStr += c + data
+
+    return "{count}".format(count=count) + data if len(encodedStr) == 0 else encodedStr
 
 
-def decode(str): 
-    
-    decodedStr = ''
-    index = 0
-    
-    for i in str: 
-        
-        for _ in range(int(index)):
-                
-            decodedStr += str[i + 1]
-            
-        
-    
-    return decodedStr
-                
+def decode(string):
+
+    decodedString = ''
+    num = ''
+
+    for i in range(len(string)):
+
+        if string[i].isnumeric():
+            num += string[i]
+
+        else:
+
+            for _ in range(int(num)):
+                decodedString += string[i]
+
+            num = ''
+
+    return decodedString

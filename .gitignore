@@ -127,6 +127,8 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# Temp code files
 Leetcode/tempCodeRunnerFile.py
 Codewars/6kyu/tempCodeRunnerFile.py
 Codewars/5kyu/tempCodeRunnerFile.py

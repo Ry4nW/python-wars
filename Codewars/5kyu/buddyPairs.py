@@ -1,0 +1,3 @@
+def buddy(start, limit):
+
+    

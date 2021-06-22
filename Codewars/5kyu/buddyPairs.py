@@ -1,3 +1,5 @@
+# Attempt
+
 def buddy(start, limit):
 
     add = 0
@@ -39,6 +41,24 @@ def buddy(start, limit):
                 add += 1
 
     return 'Nothing'
+
+# Solution
+
+def buddy(start, limit):
+    for n in range(start, limit + 1):
+        m = s(n)
+        if m > n and n == s(m):
+            return [n, m]
+            
+    return "Nothing"
+    
+def s(n):
+    s = 0
+    for i in range(2, round(n ** 0.5)):
+        if n % i == 0:
+            s += i
+            s += n // i
+    return s
 
 
 

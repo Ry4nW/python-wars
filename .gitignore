@@ -106,7 +106,6 @@ celerybeat.pid
 .venv
 env/
 venv/
-binaryTrees.py
 ENV/
 env.bak/
 venv.bak/

@@ -84,7 +84,11 @@ class LinkedList:
   
   def delete_node_at_position(self, position):
 
-    return
+    if self.head:
+      cur_node = self.head
+      
+      if position == 0:
+        self.h
 
 
   

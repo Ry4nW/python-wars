@@ -1,6 +1,6 @@
 # python-wars
-Programming problems in Python through various sites.
+Algorithms and Data Structures in Python.
 
-- [Codewars](./Codewars/)
-- [binarysearch](./binarysearch/)
-
+- [Problems from Codewars](./Codewars/)
+- [Problems from binarysearch](./binarysearch/)
+- [Data Structures](./dataStructures)

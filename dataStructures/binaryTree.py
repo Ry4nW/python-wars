@@ -24,6 +24,15 @@ class BinaryTree():
             newNode.rightChild = self.rightChild
             self.rightChild = newNode
 
+    def preOrderPrint(self, start, traversal):
+
+        if start:
+            traversal += (str(start.value) + '-')
+            traversal = self.preOrderPrint(start.leftChild, traversal)
+            traversal = self.preOrderPrint(start.rightChild, traversal)
+        
+        return traversal
+
 bTRoot = BinaryTree('a')
 bTRoot.insertLeft('b')
 bTRoot.insertRight('c')
@@ -39,12 +48,4 @@ dNode = bNode.rightChild
 eNode = cNode.leftChild
 fNode = cNode.rightChild
 
-alphabet = 'abcdefghijklmnopqrstuvwxyz'
-
-print(bTRoot.value)
-
-for i in range(1, 6):
-    print(eval(f'{alphabet[i]}Node.value'))
-
-
-
+print(bTRoot.preOrderPrint(bTRoot, ''))

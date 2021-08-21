@@ -1,2 +1,2 @@
 def palindromeChecker(str):
-    return str == str[::1]
+    return str == str[::-1]

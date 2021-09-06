@@ -1,27 +1,26 @@
-# Attempt, TLEs on submission
 class Solution:
     def solve(self, matrix):
 
-        returnMatrix = []
-        zeroRow = []
+        row = {}
+        col = {}
 
         for i in range(len(matrix)):
-            returnMatrix.append([])
-
             for j in range(len(matrix[i])):
-                returnMatrix[i].append(matrix[i][j])
+                cur = matrix[i][j]
+                if cur == 0:
+                    if i not in row:
+                        row[i] = 1
 
-        for _ in range(len(matrix[0])):
-            zeroRow.append(0)
+                    if j not in col:
+                        col[j] = 1
 
-        for row in range(len(matrix)):
+        zeroRow = [0 for _ in matrix[0]]
 
-            for cell in range(len(matrix[row])):
-
-                if matrix[row][cell] == 0:
-                    returnMatrix[row] = zeroRow.copy()
-                
-                    for i in range(len(matrix)):
-                        returnMatrix[i][cell] = 0
+        for row in row:
+            matrix[row] = zeroRow.copy()
+    
+        for col in col:
+            for i in range(len(matrix)):
+                matrix[i][col] = 0
         
-        return returnMatrix
+        return matrix

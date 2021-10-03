@@ -1,14 +1,14 @@
-#TLEs
 class Solution:
     def solve(self, nums):
 
-        largestSum = float('-inf')
-        
+        ans, maxSum, minSum = nums[0], 0, 0
+
         for i in range(len(nums)):
-
-            for j in range(i, len(nums) + 1):
-
-                curSum = sum(nums[i:j + 1])
-                largestSum = curSum if curSum > largestSum else largestSum
+            maxSum += nums[i]
+            ans = max(ans, maxSum - minSum)
+            minSum = min(minSum, maxSum)
         
-        return largestSum 
+        return ans
+
+solution = Solution()
+print(solution.solve([10, -5, 12, -100, 3, -1, 20]))

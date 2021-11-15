@@ -1,23 +1,31 @@
-# Implementing a queue using a list and append()/pop() as enqueue()/dequeue
+from linkedList import Node
 
-queue = []
+class Queue:
 
-for i in range(3):
-    queue.append(i)
+    def __init__(self) -> None:
+        self.front = None
+        self.back = None
+        
+    def enqueue(self, item) -> bool:
+        newNode = Node(item)
 
-print(queue)
+        if not self.is_empty(): self.front = newNode
+        else: self.back.next = self.back.next = newNode
 
-print(queue.pop(0))
-print(queue.pop(0))
-print(queue.pop(0))
+        self.back = newNode
+    
+    def dequeue(self) -> int or str:
+        if self.front == None:
+            return 'Failed operation -> Queue.dequeue()\nReason -> Queue is empty.'
+        
+        dequeuedVal = self.front.val
+        self.front = self.front.next
+        return dequeuedVal
 
-# Python's Collections Module 
-
-from collections import deque
-
-queue = deque()
-
-for i in range(3):
-    queue.append(i)
-
-print(queue)
+    def peek(self) -> int or str:
+        if self.is_empty(): 
+            return 'Failed operation -> Queue.peek()\nReason -> Queue is empty.'
+        return self.front.val
+    
+    def is_empty(self) -> int or str:
+        return self.front == None
